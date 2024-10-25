@@ -1,0 +1,33 @@
+// HEADER
+.header {
+  color: white;
+  background-color: #3a4b68;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+
+  .logo-scan-sever {
+    margin-left: 24px;
+    width: 200px;
+    color: #fff;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 26px;
+  }
+
+  .content-header {
+    display: flex;
+    margin-left: auto;
+    margin-right: 24px;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      color: #fff
+    }
+  }
+}

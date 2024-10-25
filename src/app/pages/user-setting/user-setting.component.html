@@ -1,0 +1,77 @@
+<div>
+  <app-header-page [title]="title"></app-header-page>
+  <div class="vn-dashboard">
+    <button class="vn-btn-add" nz-button [nzType]="'primary'" (click)="showModal()"><span>Thêm mới</span></button>
+    <nz-table #editRowTable nzBordered [nzData]="listOfData" [nzScroll]="{ x: 'auto' }">
+      <thead>
+        <tr>
+          <th nzWidth="15%">Username</th>
+          <th nzWidth="20%">Email</th>
+          <th nzWidth="40%">Token</th>
+          <th>Quota</th>
+          <th nzWidth="10%">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of editRowTable.data" class="editable-row">
+          <td>{{ data.username }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.token }}</td>
+          <td>{{ data.quota }}</td>
+          <td>
+            <a (click)="editUser(data)">Delete</a>
+
+            <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)">Delete</a>
+          </td>
+          <!-- <td>
+            <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.key)">Delete</a>
+            <nz-divider nzType="vertical"></nz-divider>
+          </td> -->
+        </tr>
+      </tbody>
+    </nz-table>
+    <app-create-user #child [isVisible]="isVisible" (onCancelEvent)="handleCancel($event)"
+      (onSubmitEvent)="submitForm($event)" [actionForm]="actionForm" [detailRecord]="detailRecord">
+    </app-create-user>
+    <!-- <nz-modal nzClassName="vn-modal-add" [(nzVisible)]="isVisible" nzTitle="Thêm mới người dùng"
+      (nzOnCancel)="handleCancel()" (nzOnOk)="submitForm()" nzOkText="Lưu" nzCancelText="Hủy bỏ">
+      <ng-container *nzModalContent>
+        <form nz-form nzLayout='vertical' [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-label nzRequired nzFor="email">E-mail</nz-form-label>
+            <nz-form-control nzErrorTip="The input is not valid E-mail!">
+              <nz-input-group>
+                <input type="email" nz-input formControlName="email" placeholder="Please enter E-mail" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="24" [nzXs]="24" nzRequired nzFor="email">User name</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="The input is not valid user name">
+              <nz-input-group>
+                <input type="text" nz-input formControlName="username" placeholder="Please enter Username" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="24" [nzXs]="24" nzRequired nzFor="password">Password</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="The input is not valid password">
+              <nz-input-group>
+                <input type="password" nz-input formControlName="password" placeholder="Please enter Password" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSm]="24" [nzXs]="24" nzRequired nzFor="quota">Quota</nz-form-label>
+            <nz-form-control [nzSm]="24" [nzXs]="24" nzErrorTip="The input is not valid E-mail!">
+              <nz-input-group>
+                <input type="text" nz-input formControlName="quota" placeholder="Please enter Quota" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+
+        </form>
+      </ng-container>
+    </nz-modal> -->
+  </div>
+</div>

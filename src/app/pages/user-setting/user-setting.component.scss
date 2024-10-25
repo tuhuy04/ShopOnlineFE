@@ -1,0 +1,34 @@
+.vn-btn-add {
+  display: flex;
+  margin-left: auto;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+
+
+
+::ng-deep .vn-modal-add {
+  .ant-modal-header {
+    box-shadow: 0 2px 8px 0 rgb(9 30 66 / 8%);
+  }
+
+  .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    margin-right: 0px;
+    position: absolute;
+    right: -9px;
+    top: 5px;
+  }
+
+  .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+    box-shadow: 0 0 0 2px rgb(24 144 255 / 20%);
+    color: #172b4d;
+  }
+
+  .ant-table tfoot>tr>td,
+  .ant-table tfoot>tr>th,
+  .ant-table-tbody>tr>td,
+  .ant-table-thead>tr>th {
+    color: #172b4d;
+  }
+}
